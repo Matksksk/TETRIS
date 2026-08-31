@@ -14,6 +14,7 @@ POSICAO_TABULEIRO_Y = (ALTURA_TELA - ALTURA_TABULEIRO) // 2
 
 tela = pygame.display.set_mode((LARGURA_TELA, ALTURA_TELA))
 pygame.display.set_caption("Meu Tetris")
+pontos=0
 
 tabuleiro = [[0 for coluna in range(10)] for linha in range(20)]
 
@@ -45,6 +46,20 @@ def verificar_eventos():
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
             rodando = False
+def verificar_linhas():
+    linhas_completas = 0
+
+    for linha in tabuleiro:
+        if linha == [1] * 10:
+            linhas_completas += 1
+
+    return linhas_completas
+def pontos():
+    linhas_completas=verificar_linhas(linhas_completas)
+    if linhas_completas==1:
+        pontos+=100
+    elif    
+
 def cor():
     cores=[
         [(25,25,112)],
